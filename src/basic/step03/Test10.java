@@ -1,4 +1,5 @@
 package basic.step03;
+
 /*
  * # ATM[2단계]
  * --모든 기능은 로그인 후 이용가능--
@@ -18,7 +19,7 @@ package basic.step03;
  * 6. 조회
  * 7. 종료
  */
-
+//28
 import java.util.Scanner;
 
 public class Test10 {
@@ -50,16 +51,131 @@ public class Test10 {
 			System.out.print("메뉴 선택 : ");
 			int sel = sc.nextInt();
 
+			int money = 0;
 			if (sel == 1) {
+				if (log == -1) {
+					System.out.println("ID입력: ");
+					int id = sc.nextInt();
+					System.out.println("PW입력: ");
+					int pw = sc.nextInt();
+
+					if (id == dbAcc1 && pw == dbPw1) {
+						System.out.println("환영합니다" + dbAcc1 + "님");
+						log = 1;
+
+					} else if (id == dbAcc2 && pw == dbPw2) {
+						System.out.println("환영합니다" + dbAcc2 + "님");
+						log = 2;
+					} else {
+						System.out.println("아이디 또는 패스워드가 일치하지 않습니다.");
+					}
+				} else {
+					System.out.println("이미 로그인 하셨습니다.");
+				}
+
 			} else if (sel == 2) {
+				if (log != -1) {
+					log = -1;
+					System.out.println("로그아웃 되셨습니다.");
+				} else {
+					System.out.println("로그인을 해주세요.");
+				}
+
 			} else if (sel == 3) {
+				if (log != -1) {
+					if (log == 1) {
+						System.out.println("입금할 금액 입력: ");
+						int deposit = sc.nextInt();
+						dbMoney1 += deposit;
+					} else if (log == 2) {
+						System.out.println("입금할 금액 입력: ");
+						int deposit = sc.nextInt();
+						dbMoney2 += deposit;
+					}
+					System.out.println("입금 완료");
+
+				} else {
+					System.out.println("로그인을 해주세요");
+				}
+
 			} else if (sel == 4) {
+				if (log != -1) {
+					if (log == 1) {
+						System.out.println("출금할 금액 입력: ");
+						int withdraw = sc.nextInt();
+						if (dbMoney1 >= withdraw) {
+							dbMoney1 -= withdraw;
+						} else if (dbAcc1 < withdraw) {
+							System.out.println("금액이 부족합니다");
+						}
+					} else if (log == 2) {
+						System.out.println("출금할 금액 입력: ");
+						int withdraw = sc.nextInt();
+						if (dbMoney2 >= withdraw) {
+							dbMoney2 -= withdraw;
+						} else if (dbAcc2 < withdraw) {
+							System.out.println("금액이 부족합니다");
+						}
+					}
+				} else {
+					System.out.println("로그인을 해주세요");
+				}
+
 			} else if (sel == 5) {
+
+				if (log != -1) {
+					System.out.println("이체하실 계좌번호 입력: ");
+					int sendAcc = sc.nextInt();
+
+					if (log == 1) {
+						if (dbAcc2 == sendAcc) {
+							System.out.print("이체하실 금액 입력:");
+							int sendMoney = sc.nextInt();
+							if (dbMoney1 >= sendMoney) {
+								dbMoney1 -= sendMoney;
+								dbMoney2 += sendMoney;
+								System.out.println("이체 완료");
+
+							} else if (dbMoney1 < sendMoney) {
+								System.out.println("금액이 부족합니다.");
+							}
+						} else if (dbAcc2 != sendAcc) {
+							System.out.println("잘못된 계좌번호 입니다");
+						}
+
+					} else if (log == 2) {
+						if (dbAcc1 == sendAcc) {
+							System.out.print("이체하실 금액 입력:");
+							int sendMoney = sc.nextInt();
+							if (dbMoney2 >= sendMoney) {
+								dbMoney2 -= sendMoney;
+								dbMoney1 += sendMoney;
+								System.out.println("이체 완료");
+
+							} else if (dbMoney2 < sendMoney) {
+								System.out.println("금액이 부족합니다.");
+							}
+						} else if (dbAcc1 != sendAcc) {
+							System.out.println("잘못된 계좌번호 입니다");
+						}
+					}
+				} else {
+					System.out.println("로그인 후 이용가능");
+				}
+
 			} else if (sel == 6) {
+				if (log != -1) {
+					System.out.println(dbAcc1 + "님 잔액: " + dbMoney1);
+					System.out.println(dbAcc2 + "님 잔액: " + dbMoney2);
+				} else {
+					System.out.println("로그인 후 이용가능");
+				}
+
 			} else if (sel == 0) {
 				run = false;
 				System.out.println("프로그램 종료");
 			}
+
 		}
 
 	}

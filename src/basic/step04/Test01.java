@@ -12,7 +12,7 @@ package basic.step04;
  * 3턴 : p1(3)	br(6)
  * ...
  */
-
+// 0156
 public class Test01 {
 
 	public static void main(String[] args) {
@@ -22,6 +22,7 @@ public class Test01 {
 		int br = 0;
 		int turn = 0;
 
+		
 	}
 
 }
