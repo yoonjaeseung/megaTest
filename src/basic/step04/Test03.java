@@ -1,4 +1,7 @@
 package basic.step04;
+
+import java.util.Scanner;
+
 /*
  * # 소수찾기[1단계]
  * 1. 소수란, 1과 자기자신으로만 나눠지는 수
@@ -11,10 +14,33 @@ package basic.step04;
  * 
  * 정수 한 개를 입력받아, 해당 숫자가 소수인지 아닌지 판별한다.
  */
-
+//다시
 public class Test03 {
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("정수 입력: ");
+		int num = sc.nextInt();
+
+		int cnt = 0;
+		int i = 1;
+		while (i <= num) {
+
+			if (num % i == 0) {
+				cnt = cnt + 1;
+				System.out.print(i + " ");
+			}
+
+			i++;
+
+		}
+		
+		System.out.println("\n[cnt] = " + cnt);
+		if (cnt == 2) {
+			System.out.println("소수입니다");
+		} else {
+			System.out.println("소수가 아닙니다.");
+		}
 
 	}
 

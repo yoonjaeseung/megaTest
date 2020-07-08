@@ -1,4 +1,5 @@
 package basic.step04;
+
 /*
  * # 쇼핑몰 뒤로가기
  * 1. 남성의류
@@ -10,8 +11,10 @@ package basic.step04;
  * 		2) 치마
  * 		3) 뒤로가기
  * 3. 종료
+ * 
+ * while문 사용
  */
-
+//1257 1002
 import java.util.Scanner;
 
 public class Test06 {
@@ -30,9 +33,18 @@ public class Test06 {
 			int sel = sc.nextInt();
 
 			if (sel == 1) {
-				System.out.println("1)티셔츠");
-				System.out.println("2)바지");
-				System.out.println("3)뒤로가기");
+				boolean exit = true;
+				while(exit) {
+					System.out.println("1)티셔츠");
+					System.out.println("2)바지");
+					System.out.println("3)뒤로가기");
+					int sel2 = sc.nextInt();
+					if(sel2 == 3) {
+						exit = false;
+					}
+					
+				}
+
 			} else if (sel == 2) {
 			} else if (sel == 3) {
 				run = false;

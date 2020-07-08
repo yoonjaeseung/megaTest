@@ -13,7 +13,7 @@ import java.util.Scanner;
  * 4. 거리 2칸 당 50원씩 추가되어 요금도 출력한다.
  * 예) 1(50) 2(50) 3(100) 4(100) ...
  */
-
+//0132
 public class Test07 {
 
 	public static void main(String[] args) {
@@ -54,8 +54,31 @@ public class Test07 {
 			int sel = sc.nextInt();
 
 			if (sel == 1) {
+				System.out.println("동(1) 서(2) 남(3) 북(4)");
+				dir = sc.nextInt();
+				if (dir == 1) {
+					x = 1;
+				} else if (dir == 2) {
+					x = -1;
+				} else if (dir == 3) {
+					y = -1;
+				} else if (dir == 4) {
+					y = 1;
+				}
 			} else if (sel == 2) {
+				System.out.println("1~3까지 선택");
+				speed = sc.nextInt();
+
 			} else if (sel == 3) {
+				if (dir == 1) {
+					x = x + speed;
+				} else if (dir == 2) {
+					x = x + speed;
+				} else if (dir == 3) {
+					y = y + speed;
+				} else if (dir == 4 || y == 1) {
+					y = y + speed;
+				}
 			}
 
 		}
