@@ -1,5 +1,6 @@
 package basic.step04;
 
+import java.util.Random;
 import java.util.Scanner;
 
 /*
@@ -13,15 +14,18 @@ import java.util.Scanner;
  * 4. 거리 2칸 당 50원씩 추가되어 요금도 출력한다.
  * 예) 1(50) 2(50) 3(100) 4(100) ...
  */
-//0132
+//다시
 public class Test07 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		Random ran = new Random();
 
 		// 목적지(destination)
-		int desX = 0;
-		int desY = 0;
+		int desX = ran.nextInt(21) - 10;
+		int desY = ran.nextInt(21) - 10;
+
+
 
 		// 현재 위치
 		int x = 0;
@@ -35,6 +39,9 @@ public class Test07 {
 
 		// 요금
 		int fee = 0;
+
+		// 이동칸 수
+		int move = 0;
 
 		boolean run = true;
 		while (run) {
@@ -56,15 +63,7 @@ public class Test07 {
 			if (sel == 1) {
 				System.out.println("동(1) 서(2) 남(3) 북(4)");
 				dir = sc.nextInt();
-				if (dir == 1) {
-					x = 1;
-				} else if (dir == 2) {
-					x = -1;
-				} else if (dir == 3) {
-					y = -1;
-				} else if (dir == 4) {
-					y = 1;
-				}
+
 			} else if (sel == 2) {
 				System.out.println("1~3까지 선택");
 				speed = sc.nextInt();
@@ -73,12 +72,26 @@ public class Test07 {
 				if (dir == 1) {
 					x = x + speed;
 				} else if (dir == 2) {
-					x = x + speed;
+					x = x - speed;
 				} else if (dir == 3) {
-					y = y + speed;
+					y = y - speed;
 				} else if (dir == 4 || y == 1) {
 					y = y + speed;
 				}
+
+				move = move + speed;
+			}
+
+			if (desX == x && desY == y) {
+				if (move % 2 == 1) {
+					fee = fee + 50;
+				}
+				fee = fee + move / 2 * 50;
+
+				System.out.println("목적지에 도착하였습니다.");
+				System.out.println("택시비는" + fee + "원 입니다.");
+
+				run = false;
 			}
 
 		}
