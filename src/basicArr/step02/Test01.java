@@ -3,51 +3,44 @@ package basicArr.step02;
 import java.util.Random;
 
 /*
- * # OMR카드
- * 1. 배열 answer는 시험문제의 정답지이다.
- * 2. 배열 hgd에 1~5 사이의 랜덤 숫자 5개를 저장한다.
- * 3. answer와 hgd 값을 비교해 정오표를 출력한다.
- * 4. 한 문제당 20점이다.
- * 예)
- * answer = {1, 3, 4, 2, 5}
- * hgd    = {1, 1, 4, 4, 3}
- * 정오표     = {O, X, O, X, X}
- * 성적        = 40점
+ * # 학생성적관리 프로그램[1단계] : 학생점수
  */
-//8분
+//13분
 public class Test01 {
+
 	public static void main(String[] args) {
 		Random ran = new Random();
-		int[] answer = { 1, 3, 4, 2, 5 };
-		int[] hgd = new int[5];
-		int score = 0;
+		int[] arr = new int[5];
 
-		System.out.print("{ ");
-		for (int i = 0; i < 5; i++) {
-			System.out.print(answer[i] + " ");
-		}
-		System.out.println("}");
+		int tot = 0;
+		double avg = 0.0d;
+		int passCnt = 0;
 
-		System.out.print("{ ");
+		// 문제1) arr배열에 1~100점 사이의 정수를 5개 저장
+		// 예 1) 87, 11, 92, 14, 47
+		System.out.println("문제1>>>");
 		for (int i = 0; i < 5; i++) {
-			hgd[i] = ran.nextInt(5) + 1;
-			System.out.print(hgd[i] + " ");
-		}
-		System.out.println("}");
+			int score = ran.nextInt(100) + 1;
+			arr[i] = score;
 
-		System.out.print("{ ");
-		for (int i = 0; i < 5; i++) {
-			if (answer[i] == hgd[i]) {
-				System.out.print("O ");
-				score += 20;
-			} else {
-				System.out.print("X ");
+			tot = tot + score;
+
+			if (arr[i] >= 60) {
+				passCnt += 1;
 			}
-
+			System.out.print(arr[i] + " ");
 		}
-		System.out.println("}");
-		
-		
-		System.out.println("점수: "+score+"점");
+
+		// 문제2) 전교생의 총점과 평균 출력
+		// 예 2) 총점(251) 평균(50.2)
+		System.out.println("\n문제2>>>");
+		avg = tot / 5.0;
+		System.out.println("총점: " + tot + " / 평균: " + avg);
+
+		// 문제3) 성적이 60점 이상이면 합격. 합격생 수 출력
+		// 예 3) 2명
+		System.out.println("문제3>>>");
+		System.out.println("합격생: " + passCnt);
 	}
+
 }
