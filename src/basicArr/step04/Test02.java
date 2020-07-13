@@ -4,6 +4,7 @@ package basicArr.step04;
  * 거꾸로 저장
  */
 //13분
+//답없음
 public class Test02 {
 
 	public static void main(String[] args) {
