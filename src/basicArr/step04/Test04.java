@@ -1,5 +1,7 @@
 package basicArr.step04;
 
+import java.util.Random;
+
 /*
  * # 중복숫자 금지[1단계]
  * 1. 0~4 사이의 숫자를 arr배열에 저장한다.
@@ -17,13 +19,29 @@ package basicArr.step04;
  * check = {0, 1, 1, 1, 0}
  * arr   = {1, 3, 2, 0, 0}
  */
-
+//다시
 public class Test04 {
 
 	public static void main(String[] args) {
+		Random ran = new Random();
+
 		int[] check = new int[5];
 		int[] arr = new int[5];
 
-	}
+		for (int i = 0; i < 5; i++) {
+			int r = ran.nextInt(5);
+			arr[i] = r;
+			if (check[r] == 0) {
+				check[r] = 1;
+			} else {
+				i = i - 1; //랜덤 중복 숫자면 다시 
+			}
+		}
 
+		for (int i = 0; i < 5; i++) {
+			System.out.print(arr[i] + " ");
+		}
+		System.out.println();
+
+	}
 }

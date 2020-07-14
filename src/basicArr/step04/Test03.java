@@ -9,7 +9,8 @@ import java.util.Scanner;
  * 2. 추가 문제) lotto 에 처음부터 값이 있는게 아니라 랜덤으로 7이나 0 을  넣은후 매번 다른 결과가 나오도록 만들어보세요
  *
  */
-//질문: i<7-2 라고 하는 이유???
+//질문: i<7-2 라고 하는 이유??? 
+//	: 꽝을 넣기 위한 방법은?
 public class Test03 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -21,25 +22,29 @@ public class Test03 {
 		int[] lotto = new int[8];
 
 		int cnt = 0;
-		int cnt2 = 0;
-		int idx = 0;
 
-		int run = 0;
-		while (run <= 3) {
+		boolean run = true;
+		while (run) {
 
-			System.out.print("치트키 ==>[ ");
+			System.out.print("자동복권 ==>[ ");
 			for (int i = 0; i < 8; i++) {
-				int num = ran.nextInt(2);
-				if (num == 1) {
-					lotto[i] = 7;
-				} else if (cnt == 0) {
-					lotto[i] = 0;
+				int num = ran.nextInt(100);
+				int numCnt = 0;
+
+				if (numCnt <= 5) {
+					if (num % 2 == 0) {
+						lotto[i] = 7;
+						numCnt += 1;
+					} else {
+						lotto[i] = 0;
+					}
 				}
+
 				System.out.print(lotto[i] + " ");
 			}
 			System.out.println("]");
 
-			System.out.println("1) 복권 결과확인 2) 종료");
+			System.out.println("1)복권 결과확인 2)종료");
 			System.out.print("메뉴 선택 : ");
 			int sel = sc.nextInt();
 
@@ -49,21 +54,19 @@ public class Test03 {
 						System.out.println("당첨");
 						cnt += 1;
 						i = 7 - 2;
-						idx = i;
 					}
 				}
 
 			} else if (sel == 2) {
-				run = 3;
+				run = false;
 				System.out.println("종료");
-
 
 			} else {
 				System.out.println("잘못눌렀습니다");
 			}
-			run++;
+			System.out.println();
 		}
-		
+
 		System.out.println("당첨 복권: " + cnt + "개");
 
 	}
