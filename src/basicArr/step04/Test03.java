@@ -9,8 +9,8 @@ import java.util.Scanner;
  * 2. 추가 문제) lotto 에 처음부터 값이 있는게 아니라 랜덤으로 7이나 0 을  넣은후 매번 다른 결과가 나오도록 만들어보세요
  *
  */
-//질문: i<7-2 라고 하는 이유??? 
-//	: 꽝을 넣기 위한 방법은?
+//질문: i<7-2 라고 하는 이유??? -> 잘못된 문제 6으로 변경. 이유는 [i+2] 에서 5+2가 7이므로!!
+//	: 꽝을 넣기 위한 방법은? -> 아래 확인하기
 public class Test03 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -25,11 +25,10 @@ public class Test03 {
 
 		boolean run = true;
 		while (run) {
-
+			int numCnt = 0;
 			System.out.print("자동복권 ==>[ ");
 			for (int i = 0; i < 8; i++) {
 				int num = ran.nextInt(100);
-				int numCnt = 0;
 
 				if (numCnt <= 5) {
 					if (num % 2 == 0) {
@@ -49,14 +48,21 @@ public class Test03 {
 			int sel = sc.nextInt();
 
 			if (sel == 1) {
-				for (int i = 0; i < 7 - 2; i++) {
+				int res = 0;
+				for (int i = 0; i < 6; i++) {
 					if (lotto[i] == 7 && lotto[i + 1] == 7 && lotto[i + 2] == 7) {
-						System.out.println("당첨");
+						res = 1;
 						cnt += 1;
-						i = 7 - 2;
 					}
 				}
+				//질문 해결
+				if (res == 1) {
+					System.out.println("당첨");
 
+				}else {
+					System.out.println("꽝");
+				}
+				
 			} else if (sel == 2) {
 				run = false;
 				System.out.println("종료");

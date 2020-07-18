@@ -34,14 +34,13 @@ public class Test04 {
 			if (check[r] == 0) {
 				check[r] = 1;
 			} else {
-				i = i - 1; //랜덤 중복 숫자면 다시 
+				i = i - 1;
 			}
 		}
 
 		for (int i = 0; i < 5; i++) {
 			System.out.print(arr[i] + " ");
 		}
-		System.out.println();
 
 	}
 }
