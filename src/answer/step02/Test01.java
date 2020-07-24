@@ -1,4 +1,4 @@
-package basicArr.step02;
+package answer.step02;
 
 /*
  * # 학생성적관리 프로그램[1단계] : 학생점수

@@ -19,61 +19,16 @@ public class Test03 {
 		// int[] lotto = { 7, 0, 7, 7, 0, 0, 0, 0 };
 		// int[] lotto = {7, 0, 7, 7, 7, 0, 7, 0};
 
-		int[] lotto = new int[8];
-
-		int cnt = 0;
-
 		boolean run = true;
 		while (run) {
-			int numCnt = 0;
-			System.out.print("자동복권 ==>[ ");
-			for (int i = 0; i < 8; i++) {
-				int num = ran.nextInt(100);
-
-				if (numCnt <= 5) {
-					if (num % 2 == 0) {
-						lotto[i] = 7;
-						numCnt += 1;
-					} else {
-						lotto[i] = 0;
-					}
-				}
-
-				System.out.print(lotto[i] + " ");
-			}
-			System.out.println("]");
-
-			System.out.println("1)복권 결과확인 2)종료");
+			System.out.println("1) 복권 결과확인");
 			System.out.print("메뉴 선택 : ");
 			int sel = sc.nextInt();
 
 			if (sel == 1) {
-				int res = 0;
-				for (int i = 0; i < 6; i++) {
-					if (lotto[i] == 7 && lotto[i + 1] == 7 && lotto[i + 2] == 7) {
-						res = 1;
-						cnt += 1;
-					}
-				}
-				//질문 해결
-				if (res == 1) {
-					System.out.println("당첨");
 
-				}else {
-					System.out.println("꽝");
-				}
-				
-			} else if (sel == 2) {
-				run = false;
-				System.out.println("종료");
-
-			} else {
-				System.out.println("잘못눌렀습니다");
 			}
-			System.out.println();
 		}
-
-		System.out.println("당첨 복권: " + cnt + "개");
 
 	}
 }
