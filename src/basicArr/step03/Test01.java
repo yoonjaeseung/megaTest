@@ -1,5 +1,7 @@
 package basicArr.step03;
 
+import java.util.Random;
+
 /*
  * # OMR카드
  * 1. 배열 answer는 시험문제의 정답지이다.
@@ -12,11 +14,37 @@ package basicArr.step03;
  * 정오표     = {O, X, O, X, X}
  * 성적        = 40점
  */
-
+// 8분
 public class Test01 {
 	public static void main(String[] args) {
 		int[] answer = { 1, 3, 4, 2, 5 };
 		int[] hgd = new int[5];
+
+		// start
+
+		Random ran = new Random();
+
+		int cnt = 0;
+
+		for (int i = 0; i < 5; i++) {
+			System.out.print(answer[i] + " ");
+		}
+		System.out.println();
+
+		for (int i = 0; i < 5; i++) {
+			hgd[i] = ran.nextInt(5) + 1;
+
+			if (hgd[i] == answer[i]) {
+				System.out.print("O ");
+				cnt++;
+			} else {
+				System.out.print("X ");
+			}
+		}
+		System.out.println();
+
+		int tot = cnt * 20;
+		System.out.println("성적: " + tot + "점");
 
 	}
 }
