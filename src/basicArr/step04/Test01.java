@@ -57,24 +57,29 @@ public class Test01 {
 		// 예) 63 ==> 1001
 		// 예) 56 ==> 1002
 		// 예) 82 ==> 1003
+		System.out.println("총점 입력: ");
+		int total = sc.nextInt();
+		int idx2 = 0;
+		int idx3 = 0;
+		int check = 0;
 		int sum = 0;
-		int idx = 0;
-		// System.out.print("점수의 합 입력: ");
-		// int ans = sc.nextInt();
-		int[] temp = new int[6];
-		for (int i = 0; i < 9; i++) {
-			if (scores[i] / 1000 == 0) {
-				temp[i] = scores[i];
-				System.out.print(temp[i] + " ");
+		for (int i = 0; i < scores.length; i++) {
+
+			if (scores[i] / 1000 >= 1) {
+				idx2 = i + 1;
+				idx3 = i + 2;
+				sum = scores[idx2] + scores[idx3];
+				if (total == sum) {
+					System.out.println(sum + "==>" + scores[i]);
+				} else {
+					check = -1;
+				}
+
 			}
-
-			// if (ans == sum) {
-			// idx = i - 1;
-			// }
-
 		}
-		System.out.println();
-		System.out.println("학번: " + scores[idx]);
+		if (check == -1) {
+			System.out.println("점수 오류");
+		}
 
 	}
 
