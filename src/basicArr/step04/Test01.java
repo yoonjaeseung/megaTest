@@ -6,7 +6,7 @@ import java.util.Scanner;
  * [문제]복습
  * 
  */
-//0545 52/ 52
+//7분/ 9분
 public class Test01 {
 
 	public static void main(String[] args) {
@@ -57,30 +57,31 @@ public class Test01 {
 		// 예) 63 ==> 1001
 		// 예) 56 ==> 1002
 		// 예) 82 ==> 1003
-		System.out.println("총점 입력: ");
-		int total = sc.nextInt();
+
+		int idx = 0;
 		int idx2 = 0;
-		int idx3 = 0;
-		int check = 0;
 		int sum = 0;
+
+		int check = -1;
+		System.out.print("점수의 합 : ");
+		int ans = sc.nextInt();
+
 		for (int i = 0; i < scores.length; i++) {
-
 			if (scores[i] / 1000 >= 1) {
-				idx2 = i + 1;
-				idx3 = i + 2;
-				sum = scores[idx2] + scores[idx3];
-				if (total == sum) {
-					System.out.println(sum + "==>" + scores[i]);
-				} else {
-					check = -1;
-				}
+				idx = i + 1;
+				idx2 = i + 2;
+				sum = scores[idx] + scores[idx2];
 
+				if (sum == ans) {
+					System.out.println("학번: " + scores[i]);
+					check = 1;
+				}
 			}
 		}
+
 		if (check == -1) {
-			System.out.println("점수 오류");
+			System.out.println("[error]점수 입력 오류");
 		}
 
 	}
-
 }

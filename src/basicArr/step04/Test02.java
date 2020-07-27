@@ -4,6 +4,7 @@ package basicArr.step04;
  * 거꾸로 저장
  */
 
+// 4분
 public class Test02 {
 
 	public static void main(String[] args) {
@@ -13,9 +14,25 @@ public class Test02 {
 		// 문제1) arr의 값을 temp4에 거꾸로 복사후 출력
 		// 예) temp4 ==> {50,40,30,20,10}
 		// 힌트 : 아래
-		int i = 0;
+		// int i = 0;
+		// int back = 4;
+		// temp4[i] = arr[back];
+
+		// start
+		System.out.println("==거꾸로 저장===");
+
+		for (int i = 0; i < 5; i++) {
+			System.out.print(arr[i] + " ");
+		}
+		System.out.println();
+
 		int back = 4;
-		temp4[i] = arr[back];
+		for (int i = 0; i < 5; i++) {
+			temp4[i] = arr[back];
+			back -= 1;
+			System.out.print(temp4[i] + " ");
+		}
+		System.out.println();
 
 	}
 
