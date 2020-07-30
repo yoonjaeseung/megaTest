@@ -18,8 +18,11 @@ import java.util.Random;
  * 랜덤숫자 : 2
  * check = {0, 1, 1, 1, 0}
  * arr   = {1, 3, 2, 0, 0}
+ * 
+ * 출력결과(결과만 출력하면 된다)
+ * { 1, 2, 0, 3, 4}
  */
-//다시
+//6분
 public class Test04 {
 
 	public static void main(String[] args) {
@@ -27,6 +30,22 @@ public class Test04 {
 
 		int[] check = new int[5];
 		int[] arr = new int[5];
+
+		for (int i = 0; i < 5; i++) {
+			int r = ran.nextInt(5);
+			arr[i] = r;
+			if (check[r] == 0) {
+				check[r] = 1;
+			} else {
+				i -= 1;
+			}
+		}
+		
+		for(int i =0; i<5;i++) {
+			System.out.print(arr[i]+" ");
+		}
+		System.out.println();
+		
 
 	}
 }
