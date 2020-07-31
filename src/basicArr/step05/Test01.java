@@ -5,7 +5,7 @@ import java.util.Scanner;
 /*
  * # 값 교체하기[2단계] 
  */
-// 20분 / 다시 / 7분
+// 20분 / 4분 / 7분
 public class Test01 {
 
 	public static void main(String[] args) {
@@ -45,7 +45,7 @@ public class Test01 {
 		// start
 		System.out.println("문제2>>>");
 		System.out.print("값1 입력: ");
-		int val = sc.nextInt();
+		int val1 = sc.nextInt();
 		System.out.print("값2 입력: ");
 		int val2 = sc.nextInt();
 
@@ -53,22 +53,26 @@ public class Test01 {
 		idx1 = 0;
 		idx2 = 0;
 		for (int i = 0; i < 5; i++) {
-			if (arr[i] == val) {
+			if (arr[i] == val1) {
 				idx1 = i;
 			}
+
 			if (arr[i] == val2) {
 				idx2 = i;
 			}
 		}
 
 		temp = arr[idx1];
-		arr[idx1] = arr[idx2];
-		arr[idx2] = temp;
-
-		for (int i = 0; i < 5; i++) {
-			System.out.print(arr[i] + " ");
+		arr[idx1]=arr[idx2];
+		arr[idx2]=temp;
+		
+		for(int i =0; i<5; i++) {
+			System.out.print(arr[i] +" ");
 		}
 		System.out.println();
+		
+		
+		
 
 		int[] hakbuns = { 1001, 1002, 1003, 1004, 1005 };
 		int[] scores = { 87, 11, 45, 98, 23 };
@@ -94,18 +98,18 @@ public class Test01 {
 			if (hakbuns[i] == data1) {
 				idx1 = i;
 			}
-			
-			if(hakbuns[i]==data2) {
+
+			if (hakbuns[i] == data2) {
 				idx2 = i;
 			}
 		}
-		
+
 		temp = scores[idx1];
 		scores[idx1] = scores[idx2];
 		scores[idx2] = temp;
-		
-		for(int i = 0;i<scores.length;i++) {
-			System.out.print(scores[i]+" ");
+
+		for (int i = 0; i < scores.length; i++) {
+			System.out.print(scores[i] + " ");
 		}
 		System.out.println();
 
