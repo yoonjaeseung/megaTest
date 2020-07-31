@@ -63,16 +63,13 @@ public class Test01 {
 		}
 
 		temp = arr[idx1];
-		arr[idx1]=arr[idx2];
-		arr[idx2]=temp;
-		
-		for(int i =0; i<5; i++) {
-			System.out.print(arr[i] +" ");
+		arr[idx1] = arr[idx2];
+		arr[idx2] = temp;
+
+		for (int i = 0; i < 5; i++) {
+			System.out.print(arr[i] + " ");
 		}
 		System.out.println();
-		
-		
-		
 
 		int[] hakbuns = { 1001, 1002, 1003, 1004, 1005 };
 		int[] scores = { 87, 11, 45, 98, 23 };
